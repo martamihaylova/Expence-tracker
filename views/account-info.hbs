@@ -19,14 +19,38 @@
             </ul>
             <ul>
                 <li>
-                    <a class="right-floated" href="/user/login">Login</a>
+                    <a class="right-floated" href="#">[myusername profile]</a>
+                </li>
+
+                <li>
+                    <a class="right-floated" href="#">Logout</a>
                 </li>
             </ul>
         </nav>
     </header> --}}
 
     <main>
-        <p class="guest-message">MoneyGone? The best expense tracker tool of all time!<br>Аre you new here? <a href="/user/register">Register</a> yourself!</p>
+        <table class="expenses-info">
+            <thead>
+                <tr>
+                    <th colspan="2">Expenses</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Total Amount:</td>
+                    <td>3887.85 BGN</td>
+                </tr>
+                <tr>
+                    <td>Total Merches</td>
+                    <td>1416</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="current-amount">
+            <p>Available amount: <span>1234.00 BGN</span></p>
+        </div>
     </main>
 
     {{!-- <footer> --}}
