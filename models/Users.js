@@ -1,26 +1,27 @@
 const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
-
-    email: {
-        type: String,
-        unique: true,
-        required: true,
-        validate: /^[a-zA-Z0-9$@$!%*?&#^-_. +]+$/
-    },
     username: {
         type: String,
+        minlength: [4, 'Username must be at least 4 characters.'],
+        trim: true,
         unique: true,
-        required: true
+        required: true,
     },
     password: {
         type: String,
         required: true
     },
-    // somethings: [{
-    //     type: mongoose.Types.ObjectId,
-    //     ref: 'Something'
-    // }],
+    amount: {
+        type: Number,
+        required: true,
+        default: 0,
+        min: [0, 'Amount cannot be negative.'],
+    },
+    expenses: [{
+        type: mongoose.Types.ObjectId,
+        ref: 'Expenses'
+    }],
 });
 
 module.exports = mongoose.model('Users', userSchema);

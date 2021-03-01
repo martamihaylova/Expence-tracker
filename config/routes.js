@@ -10,6 +10,6 @@ module.exports = (app) => {
     // app.use('/search', searchController);
     app.use('/', homeController);
     app.get('*', (req, res) => {
-        res.send('404');
+        res.render('404');
     });
 };

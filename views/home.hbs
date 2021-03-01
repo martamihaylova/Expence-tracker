@@ -1,4 +1,5 @@
-{{!-- <!DOCTYPE html>
+{{!--
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -26,7 +27,13 @@
     </header> --}}
 
     <main>
-        <p class="guest-message">MoneyGone? The best expense tracker tool of all time!<br>Аre you new here? <a href="/user/register">Register</a> yourself!</p>
+        {{#if messages.error}}
+        <section class="notifications">
+            <p class="notification-message">{{messages.error}}</p>
+        </section>
+        {{/if}}
+        <p class="guest-message">MoneyGone? The best expense tracker tool of all time!<br>Аre you new here? <a
+                href="/user/register">Register</a> yourself!</p>
     </main>
 
     {{!-- <footer> --}}

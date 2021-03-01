@@ -25,24 +25,29 @@
         </nav>
     </header> -->
 
-    <main>
-        <form>
-            <h1>Login</h1>
+<main>
+    {{#if messages.error}}
+    <section class="notifications">
+        <p class="notification-message">{{messages.error}}</p>
+    </section>
+    {{/if}}
+    <form action="/user/login" method="POST">
+        <h1>Login</h1>
 
-            <p>Personal info</p>
-            <label for="usernmae">Username</label>
-            <input id="username" type="text" placeholder="JustMyself123...">
+        <p>Personal info</p>
+        <label for="usernmae">Username</label>
+        <input id="username" type="text" name="username" placeholder="JustMyself123...">
 
-            <label for="usernmae">Password</label>
-            <input id="password" type="password" placeholder="********">
+        <label for="usernmae">Password</label>
+        <input id="password" type="password" name="password" placeholder="********">
 
-            <button type="submit">Login</button>
-        </form>
-    </main>
+        <button type="submit">Login</button>
+    </form>
+</main>
 
-    <!-- <footer> -->
-        <!-- <a href="#home"> &uarr; Back to top &uarr;</a> -->
-        <!-- <img src="https://softuni.bg/Content/images/about-page/softuni.png" alt="">
+<!-- <footer> -->
+<!-- <a href="#home"> &uarr; Back to top &uarr;</a> -->
+<!-- <img src="https://softuni.bg/Content/images/about-page/softuni.png" alt="">
         <p>Software University - JavaScript Back-End February 2021</p>
         <p>@All Rights Reserved &copy;</p>
     </footer>

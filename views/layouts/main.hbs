@@ -20,11 +20,11 @@
             <ul>
                 {{#if authenticated}}
                 <li>
-                    <a class="right-floated" href="#">[myusername profile]</a>
+                    <a class="right-floated" href={{id}}>{{name}}</a>
                 </li>
 
                 <li>
-                    <a class="right-floated" href="#">Logout</a>
+                    <a class="right-floated" href="/user/logout">Logout</a>
                 </li>
                 {{else}}
                 <li>

@@ -16,8 +16,7 @@ router.get('/', async (req, res) => {
             res.render('account-info', {
                 authenticated: req.isAuthenticated(),
                 id: user?._id,
-                name: user?.username,
-                courses
+                name: user?.username
             })
         }
     } catch (err) {

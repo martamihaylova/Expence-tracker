@@ -5,6 +5,8 @@ const initPassport = require('../config/passport-config');
 const register = require('../services/registerUser');
 const Users = require('../models/Users');
 const check = require('../middleware/checkAuth');
+const validator = require('validator');
+
 
 initPassport(passport,
     async (username) => {
@@ -25,7 +27,7 @@ initPassport(passport,
 
 router.get('/logout', check.ifLoged, (req, res) => {
     req.logOut();
-    res.redirect('/user/login');
+    res.redirect('/');
 });
 router.get('/login', check.ifNotLoged, (req, res) => {
     res.render('login', { title: 'Login' });
@@ -39,11 +41,13 @@ router.get('/register', check.ifNotLoged, (req, res) => {
     res.render('register', { title: 'Register' });
 });
 router.post('/register', check.ifNotLoged, (req, res) => {
-    let { email, username, password, rePassword } = req.body;
-    if (password !== rePassword || !validator.isEmail(email) || !validator.isAlphanumeric(username)) {
-        res.render('register', { messages: { error: 'Missmatch passwords, invalid email or username' }, title: 'Register' });
+    let { username, password, rePassword, amount} = req.body;
+    if(amount === '') amount = 0;
+    if (password !== rePassword || !validator.isAlphanumeric(username) || !validator.isLength(password, {min: 4, max: 20})) {
+        res.render('register', { messages: { error: 'Invalid passwords or username' }, title: 'Register' });
     } else {
-        register(email, username, password, req, res);
+        console.log(typeof amount);
+        register(username, password, amount, req, res);
     }
 });
 
