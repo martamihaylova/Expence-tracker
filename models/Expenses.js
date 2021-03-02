@@ -8,8 +8,7 @@ const expensesSchema = new mongoose.Schema({
         required: true
     },
     total: {
-        type: Number,
-        min: [0, 'Total cannot be negative.'],
+        type: String,
         required: true
     },
     category: {
