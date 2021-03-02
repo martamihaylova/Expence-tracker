@@ -3,7 +3,6 @@ const bcrypt = require('bcrypt');
 
 function initialize(passport, getUser, grtUserById) {
     const authUser = async (username, password, done) => {
-        username = username.toLowerCase();
         let user = await getUser(username);
         if (user === null) {
             return done(null, false, { message: 'Password or usename incorrect' });
