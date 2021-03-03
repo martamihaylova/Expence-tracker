@@ -8,7 +8,7 @@ require('./config/express')(app);
 require('./config/mongoose');
 require('./config/routes')(app);
 app.use(routes);
-// app.use(errorHandler);
+app.use(errorHandler);
 console.log(process.env.NODE_ENV);
 
 app.listen(config.PORT, console.log.bind(console, `Server listening on port ${config.PORT}...`));

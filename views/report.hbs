@@ -1,0 +1,70 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./static/css/site.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li>
+                    <a id="home" class="left-floated" href="#">MoneyGone</a>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <a class="right-floated" href="#">[myusername profile]</a>
+                </li>
+
+                <li>
+                    <a class="right-floated" href="#">Logout</a>
+                </li>
+            </ul>
+        </nav>
+    </header> -->
+
+<main>
+    {{#if messages.error}}
+    <section class="notifications">
+        <p class="notification-message">{{messages.error}}</p>
+    </section>
+    {{/if}}
+    <section class="expense-report">
+
+        <h1>ID: {{currentExpense._id}}</h1>
+
+        <div class="report-category">
+            <img src="static/images/amount.png" alt="">
+            <p>Equipment - лв {{currentExpense.total}}</p>
+        </div>
+
+        <div class="report-merchant">
+            <p>{{this.merchant}}</p>
+        </div>
+
+        <div class="report-description">
+            <img src="static/images/hastag.png" alt="">
+            <p>{{currentExpense.description}}</p>
+        </div>
+
+        <div class="report-action">
+            <a disabled href="/delete/{{currentExpense._id}}">Stop tracking</a>
+        </div>
+    </section>
+</main>
+
+<!-- <footer> -->
+<!-- <a href="#home"> &uarr; Back to top &uarr;</a> -->
+<!-- <img src="https://softuni.bg/Content/images/about-page/softuni.png" alt="">
+        <p>Software University - JavaScript Back-End February 2021</p>
+        <p>@All Rights Reserved &copy;</p>
+    </footer>
+</body>
+
+</html> -->

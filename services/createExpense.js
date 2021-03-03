@@ -1,7 +1,7 @@
 const Expense = require('../models/Expenses');
 
 function createNewExpense(data, user, req, res) {
-    data.report = data.reprtCheck === 'on' ? true : false;
+    data.report = data.reportCheck === 'on';
     data.total = Number(data.total).toFixed(2);
     let expense = new Expense(data);
     return expense.save()

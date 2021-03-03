@@ -34,9 +34,9 @@
     <main>
 
         <section class="actions">
-            <form action="">
+            <form action="/refill/{{id}}" method="POST">
                 <h2>Salary time? Refill your account amount.</h2>
-                <input type="text" id="refill-amount">
+                <input type="text" name="amount" id="refill-amount">
                 <button type="submit">Refill</button>
             </form>
             <div>
@@ -65,13 +65,13 @@
                         <p>{{this.merchant}}</p>
                         {{#if this.report}}
                         <div class="report">
-                            <a href="/report">Report</a>
+                            <a href="/report/{{this._id}}">Report</a>
                         </div>
                         {{/if}}
                     </td>
                     <td>
                         <img src="static/images/amount.png" alt="">
-                        <p>лв {{total}}</p>
+                        <p>лв {{this.total}}</p>
                     </td>
                     <td>
                         <img src="static/images/category.png" alt="">
@@ -90,6 +90,7 @@
         <h1 class="no-expenses">No expenses founded so far.. <span>GOOD JOB!</span></h1>
         {{/if}}
     </main>
+         <a href="/"> &uarr; Back to top &uarr;</a>
 
     {{!-- <footer> --}}
         <!-- <a href="#home"> &uarr; Back to top &uarr;</a> -->

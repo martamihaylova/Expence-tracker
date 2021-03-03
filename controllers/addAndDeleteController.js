@@ -8,7 +8,7 @@ router.get('/:id', check.ifLoged, (req, res) => {
     console.log(req.params.id);
     deleteExpense(req.params.id)
         .then(() => res.redirect('/'))
-        .catch((err) => console.log(err.message))
+        .catch((err) => console.log(err.message));
 })
 router.get('/', check.ifLoged, async (req, res) => {
     let user = await req.user;
