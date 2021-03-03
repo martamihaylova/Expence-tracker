@@ -2,7 +2,6 @@ const { Router } = require('express');
 const createExpense = require('../services/createExpense');
 const deleteExpense = require('../services/deleteExpense');
 const check = require('../middleware/checkAuth');
-const validator = require('validator');
 const router = Router();
 
 router.get('/:id', check.ifLoged, (req, res) => {
