@@ -19,7 +19,7 @@ router.get('/', check.ifLoged, async (req, res) => {
     })
 });
 router.post('/', check.ifLoged, async (req, res) => {
-    if (req.body.total > 0) {
+    if (Number(req.body.total) && req.body.total > 0) {
         try {
             let user = await req.user;
             req.body.user = user;

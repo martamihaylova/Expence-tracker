@@ -5,13 +5,13 @@ function initialize(passport, getUser, grtUserById) {
     const authUser = async (username, password, done) => {
         let user = await getUser(username);
         if (user === null) {
-            return done(null, false, { message: 'Password or usename incorrect 1' });
+            return done(null, false, { message: 'Password or usename incorrect' });
         };
         try {
             if (await bcrypt.compare(password, user.password)) {
                 return done(null, user);
             } else {
-                return done(null, false, { message: 'Password or usename incorrect 2' });
+                return done(null, false, { message: 'Password or usename incorrect' });
             }
         } catch (err) {
             return done(err.message);

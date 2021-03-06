@@ -1,46 +1,28 @@
+<main>
+    {{#if messages.error}}
+    <section class="notifications">
+        <p class="notification-message">{{messages.error}}</p>
+    </section>
+    {{/if}}
+    <table class="expenses-info">
+        <thead>
+            <tr>
+                <th colspan="2">Expenses</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Total Amount:</td>
+                <td>{{usersAmount}} BGN</td>
+            </tr>
+            <tr>
+                <td>Total Merches</td>
+                <td>{{expenses.totalMerches}} BGN</td>
+            </tr>
+        </tbody>
+    </table>
 
-                <li>
-                    <a class="right-floated" href="#">Logout</a>
-                </li>
-            </ul>
-        </nav>
-    </header> --}}
-
-    <main>
-        {{#if messages.error}}
-        <section class="notifications">
-            <p class="notification-message">{{messages.error}}</p>
-        </section>
-        {{/if}}
-        <table class="expenses-info">
-            <thead>
-                <tr>
-                    <th colspan="2">Expenses</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Total Amount:</td>
-                    <td>3887.85 BGN</td>
-                </tr>
-                <tr>
-                    <td>Total Merches</td>
-                    <td>1416</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <div class="current-amount">
-            <p>Available amount: <span>1234.00 BGN</span></p>
-        </div>
-    </main>
-
-    {{!-- <footer> --}}
-        <!-- <a href="#home"> &uarr; Back to top &uarr;</a> -->
-        {{!-- <img src="https://softuni.bg/Content/images/about-page/softuni.png" alt="">
-        <p>Software University - JavaScript Back-End February 2021</p>
-        <p>@All Rights Reserved &copy;</p>
-    </footer>
-</body>
-
-</html> --}}
+    <div class="current-amount">
+        <p>Available amount: <span>{{expenses.availableAmount}} BGN</span></p>
+    </div>
+</main>
