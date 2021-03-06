@@ -1,107 +1,64 @@
-{{!--
-<!DOCTYPE html>
-<html lang="en">
+<main>
+    {{#if messages.error}}
+    <section class="notifications">
+        <p class="notification-message">{{messages.error}}</p>
+    </section>
+    {{/if}}
+    <section class="actions">
+        <form action="/refill/{{id}}" method="POST">
+            <h2>Salary time? Refill your account amount.</h2>
+            <input type="text" name="amount" id="refill-amount">
+            <button type="submit">Refill</button>
+        </form>
+        <div>
+            <h2>New expense comming up?</h2>
+            <a href="/create">Add it now</a>
+        </div>
+    </section>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="./static/css/site.css">
-    <title>Document</title>
-</head>
+    <hr class="separator">
 
-<body>
-    <header>
-        <nav>
-            <ul>
-                <li>
-                    <a id="home" class="left-floated" href="#">MoneyGone</a>
-                </li>
-            </ul>
-            <ul>
-                <li>
-                    <a class="right-floated" href="#">[myusername profile]</a>
-                </li>
+    {{#if expenses}}
+    <table class="expenses">
+        <thead>
+            <tr>
+                <th>Merchant</th>
+                <th>Amount</th>
+                <th>Category</th>
+                <th>Description</th>
+            </tr>
 
-                <li>
-                    <a class="right-floated" href="#">Logout</a>
-                </li>
-            </ul>
-        </nav>
-    </header> --}}
+        </thead>
+        <tbody>
+            {{#each expenses}}
+            <tr>
+                <td>
+                    <p>{{this.merchant}}</p>
+                    {{#if this.report}}
+                    <div class="report">
+                        <a href="/report/{{this._id}}">Report</a>
+                    </div>
+                    {{/if}}
+                </td>
+                <td>
+                    <img src="static/images/amount.png" alt="">
+                    <p>лв {{this.total}}</p>
+                </td>
+                <td>
+                    <img src="static/images/category.png" alt="">
+                    <p>{{this.category}}</p>
+                </td>
+                <td>
+                    <img src="static/images/hastag.png" alt="">
+                    <p>{{this.description}}</p>
+                </td>
+            </tr>
+            {{/each}}
 
-
-    <main>
-        {{#if messages.error}}
-        <section class="notifications">
-            <p class="notification-message">{{messages.error}}</p>
-        </section>
-        {{/if}}
-        <section class="actions">
-            <form action="/refill/{{id}}" method="POST">
-                <h2>Salary time? Refill your account amount.</h2>
-                <input type="text" name="amount" id="refill-amount">
-                <button type="submit">Refill</button>
-            </form>
-            <div>
-                <h2>New expense comming up?</h2>
-                <a href="/create">Add it now</a>
-            </div>
-        </section>
-
-        <hr class="separator">
-
-        {{#if expenses}}
-        <table class="expenses">
-            <thead>
-                <tr>
-                    <th>Merchant</th>
-                    <th>Amount</th>
-                    <th>Category</th>
-                    <th>Description</th>
-                </tr>
-
-            </thead>
-            <tbody>
-                {{#each expenses}}
-                <tr>
-                    <td>
-                        <p>{{this.merchant}}</p>
-                        {{#if this.report}}
-                        <div class="report">
-                            <a href="/report/{{this._id}}">Report</a>
-                        </div>
-                        {{/if}}
-                    </td>
-                    <td>
-                        <img src="static/images/amount.png" alt="">
-                        <p>лв {{this.total}}</p>
-                    </td>
-                    <td>
-                        <img src="static/images/category.png" alt="">
-                        <p>{{this.category}}</p>
-                    </td>
-                    <td>
-                        <img src="static/images/hastag.png" alt="">
-                        <p>{{this.description}}</p>
-                    </td>
-                </tr>
-                {{/each}}
-
-            </tbody>
-        </table>
-        {{else}}
-        <h1 class="no-expenses">No expenses founded so far.. <span>GOOD JOB!</span></h1>
-        {{/if}}
-    </main>
-    <a href="/"> &uarr; Back to top &uarr;</a>
-
-    {{!-- <footer> --}}
-        <!-- <a href="#home"> &uarr; Back to top &uarr;</a> -->
-        {{!-- <img src="https://softuni.bg/Content/images/about-page/softuni.png" alt="">
-        <p>Software University - JavaScript Back-End February 2021</p>
-        <p>@All Rights Reserved &copy;</p>
-    </footer>
-</body>
-
-</html> --}}
+        </tbody>
+    </table>
+    {{else}}
+    <h1 class="no-expenses">No expenses founded so far.. <span>GOOD JOB!</span></h1>
+    {{/if}}
+</main>
+<a href="/"> &uarr; Back to top &uarr;</a>
