@@ -32,7 +32,11 @@
 
 
     <main>
-
+        {{#if messages.error}}
+        <section class="notifications">
+            <p class="notification-message">{{messages.error}}</p>
+        </section>
+        {{/if}}
         <section class="actions">
             <form action="/refill/{{id}}" method="POST">
                 <h2>Salary time? Refill your account amount.</h2>
@@ -90,7 +94,7 @@
         <h1 class="no-expenses">No expenses founded so far.. <span>GOOD JOB!</span></h1>
         {{/if}}
     </main>
-         <a href="/"> &uarr; Back to top &uarr;</a>
+    <a href="/"> &uarr; Back to top &uarr;</a>
 
     {{!-- <footer> --}}
         <!-- <a href="#home"> &uarr; Back to top &uarr;</a> -->
