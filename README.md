@@ -2,7 +2,7 @@
 
 https://expensetracker-softuni.herokuapp.com/
 
-###Test user:   Ivaylo , password:   12345
+### Test user:   Ivaylo , password:   12345
 
 ## General info
 
